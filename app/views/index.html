@@ -12,40 +12,32 @@
       <div class="registerCard">
         <h1 class="registerTitle">Cadastro de Usuário</h1>
         
-        <form action="login.php" method="POST">
+        <form id="registerUserForm" action="/clientes/registerUser" method="POST">
           <div class="inputStyle">
             <label for="nameInput">Nome:</label>
-            <input type="text" id="nameInput" name="name" placeholder="Insira seu nome">
+            <input type="text" id="nameInput" name="name" placeholder="Insira seu nome" maxlength="40" required>
           </div>
 
           <div class="inputStyle">
             <label id="emailLabel" for="emailInput">E-mail:</label>
-            <input type="text" id="emailInput" name="email" placeholder="Insira seu e-mail">
-          </div>
-
-          <div class="inputStyle">
-            <label for="cpfInput">CPF:</label>
-            <input type="text" id="cpfInput" value="" name="cpf" placeholder="Insira seu CPF" maxlength="14">
+            <input type="text" id="emailInput" name="email" placeholder="Insira seu e-mail" maxlength="33" required>
           </div>
           
           <div class="inputStyle">
-            <label id="ageLabel" for="ageInput">Idade:</label>
-            <input type="text" id="ageInput" name="age" placeholder="Insira sua idade" maxlength="10">
+            <label id="telLabel" for="tellInput">Telefone:</label>
+            <input Type="text" id="tellInput" name="tell" placeholder="Insira sua telefone" maxlength="13" required>
           </div>
 
-          <div class="buttonGroup">
-            <button type="reset">Cancelar</button>
-            <button type="submit">Enviar</button>
+          <div class="inputStyleFinal">
+            <label id="ageLabel" for="ageInput">Idade:</label>
+            <input Type="text" pattern="\d*" id="ageInput" name="age" placeholder="Insira sua idade" required>
           </div>
         </form>
+        <div class="buttonGroup">
+          <button type="reset" form="registerUserForm">Cancelar</button>
+          <button type="submit" form="registerUserForm">Enviar</button>
+        </div>
       </div>  
     </div>
   </body>
-  <script>
-    const cpf = document.querySelector("#cpfInput");
-    cpf.addEventListener("keyup", () => {
-    let value = cpf.value.replace(/[^0-9]/g, "").replace(/^([\d]{3})([\d]{3})?([\d]{3})?([\d]{2})?/, "$1.$2.$3-$4");
-    cpf.value = value;
-    });
-  </script>
 </html>

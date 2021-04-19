@@ -12,4 +12,14 @@ class Clientes {
 
     return $db->getList($this->table, "*");
   }
+
+  public function recordClient($data = null) {
+    $db = Database::getInstance();
+
+    if($data != null && !empty($data)){
+      return $db->insert($this->table, $data);
+    }
+
+    return false;
+  }
 }

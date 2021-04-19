@@ -3,12 +3,35 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../public/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../../public/css/clientes.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Quicksand:wght@700&family=Roboto&display=swap" rel="stylesheet">
-    <title><?php echo $pageTitle; ?></title>
+    <title>Clientes cadastrados</title>
   </head>
   <body>
-    <h1 class="registerTitle"><?php echo $title; ?></h1>
-    <p class="clientInfo"><?php echo 'boa tarde!'//var_dump($clients); ?>olá</p>
+    <div class="container">
+      <div class="clientsCard">
+        <h1 class="clientsCardTitle">Lista de clientes</h1>
+        <div class="clientsInfoContent">
+          <?php 
+            if ($clients != null && !empty($clients)){
+              foreach ($clients as $client) {
+                echo '<div class="clientInfo">';
+                echo '<p class="clientID">Código do cliente: ' . $client['id_client'] . '</p>';
+                echo '<p>Nome: ' . $client['client_name'] . '</p>';
+                echo '<p>E-mail: ' . $client['email'] . '</p>';
+                echo '<p>Contato: ' . $client['tell'] . '</p>';
+                echo '<p>Idade: ';
+                echo $client['age'] <= 18 ? $client['age'] . ' (Menor de idade)</p>' : $client['age'] . ' (Maior de idade)</p>';
+                echo '</div>';
+              }
+            } else {
+              echo '<div class="noClientsMessage">';
+              echo '<h1 class="noClientsMessageText">Nenhum cliente cadastrado!</h1>';
+              echo '</div>';
+            }
+          ?>
+        </div>
+      </div> 
+    </div>
   </body>
 </html>

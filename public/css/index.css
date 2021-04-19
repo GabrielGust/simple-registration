@@ -16,24 +16,25 @@ body {
   display: flex;
 
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
 
   font-size: 17px;
 }
 
 .registerCard {
+  height: 60%;
   width: 35%;
   display: flex;
 
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
 
   background-color: #200f21;
   
-  padding-top: 30px;
-  padding-bottom: 35px;
+  padding-top: 15px;
+  padding-bottom: 20px;
 
   border-radius: 10px;
   font-family: 'Roboto', sans-serif;
@@ -49,6 +50,10 @@ h1 {
 
 form {
   width: 75%;
+  justify-self: flex-end;
+}
+.registerTitle {
+  font-size: 27px;
 }
 
 #emailLabel {
@@ -67,7 +72,18 @@ form {
 
   color: #CA9BD6;
 
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+.inputStyleFinal {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+
+  color: #CA9BD6;
+  
+  margin-bottom: 0px;
 }
 
 .inputStyle label {
@@ -109,33 +125,19 @@ input:hover {
   border-style: solid;
 }
 
-.selectSyle {
-  width: 100%;
-  height: 26px;
-  margin-left: 6px;
-  overflow: hidden;
-
-  display: flex;
-
-  background-color: #382039;
-
-  border: 0px;
-  border-radius: 5px;
-  border-style: solid;
-}
-
 .registerCard .buttonGroup {
+  width: 75%;
   margin-top: 35px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .registerCard .buttonGroup button {
-  height: 30px;
-  width: 90px;
+  height: 35px;
+  width: 130px;
 
   font-family: 'Nunito', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
 
   background-color: #5a3d5c;
   color: #A498B4;

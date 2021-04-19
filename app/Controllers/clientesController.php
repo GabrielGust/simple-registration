@@ -3,23 +3,34 @@
 namespace App\Controllers;
 
 use Core\Controller;
-
+use Core\Request;
 use App\Models\Clientes;
 
 class ClientesController extends Controller {
     
     public function index() {
-        $pageTitle = 'Clientes cadastrados';
-        $title = "Lista de clientes";
-        $content = "<p>Veja os clientes:</p>";
-
         $clientsModel = new Clientes();
-
         $clients = $clientsModel->getAll();
-        var_dump($clients);
 
-        $showInfo = ['pageTitle' => $pageTitle, 'title' => $title, 'clients' => $clients];
+        $this->view('clientes', ['clients' => $clients]);
+    }
 
-        $this->view('clientes', $showInfo);
+     public function registerUser(Request $request){
+        if ($request->isMethod('get')) {
+            $this->view('index');
+        } else {
+            $clientModel = new Clientes();
+
+            $data = [
+                'client_name' => $request->post('name'),
+                'email' => filter_var($request->post('email'), FILTER_VALIDATE_EMAIL),
+                'tell' => $request->post('tell'),
+                'age' => intval($request->post('age')),
+            ];
+
+            $response = $clientModel->recordClient($data);
+
+            $this->view('confirmacao', ['user' => $data, 'response' => $response]);
+        }
     }
 }
