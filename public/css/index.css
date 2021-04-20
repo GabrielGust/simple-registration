@@ -57,11 +57,15 @@ form {
 }
 
 #emailLabel {
-  width: 15%;
+  width: 16%;
+  align-self: center;
+  justify-content: center;
 }
 
 #ageLabel {
-  width: 12%;
+  width: 13%;
+  align-self: center;
+  justify-content: center;
 }
 
 .inputStyle {
