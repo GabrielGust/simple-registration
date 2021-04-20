@@ -10,4 +10,4 @@ create table clientes (
     age int
 )engine=innodb;
 
-select * from clientes;
+insert into clientes values (1, 'Marco Aurélio de Sousa', 'marcoaurelios@gmail.com','(11)4198-1786', 48)
