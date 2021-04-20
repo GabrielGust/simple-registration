@@ -15,22 +15,14 @@ class ClientesController extends Controller {
         $this->view('clientes', ['clients' => $clients]);
     }
 
-     public function registerUser(Request $request){
+     public function register_user(Request $request){
         if ($request->isMethod('get')) {
             $this->view('index');
         } else {
-            $clientModel = new Clientes();
+            $clientModel = new Clientes();         
+            $response = $clientModel->record_client($request->post());
 
-            $data = [
-                'client_name' => $request->post('name'),
-                'email' => filter_var($request->post('email'), FILTER_VALIDATE_EMAIL),
-                'tell' => $request->post('tell'),
-                'age' => intval($request->post('age')),
-            ];
-
-            $response = $clientModel->recordClient($data);
-
-            $this->view('confirmacao', ['user' => $data, 'response' => $response]);
+            $this->view('confirmacao', ['user' => $request->post(), 'response' => $response]);
         }
     }
 }

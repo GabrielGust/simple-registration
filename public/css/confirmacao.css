@@ -24,11 +24,55 @@ body {
 
 .confirmRegisterTitle {
   padding: 25px;  
-  background-color: #480C9B;
+  background-color: #200F21;
 
   font-size: 70px;
   color: #E351CF;  
   font-family: 'Quicksand', sans-serif;
 
   border-radius: 9px;  
+}
+
+.redirectButtons {
+  margin-top: 15px;
+  width: 30%;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.backToRegisterButton {
+  padding: 5px 10px 5px 10px;
+
+  background-color: #200F21;
+  border-radius: 3px; 
+
+  text-decoration:none;
+  color: #CA9BD6;  
+  font-family: 'Quicksand', sans-serif;
+  font-size: 28px;
+
+  transition: background-color 0.2s;
+}
+
+.backToRegisterButton:hover{
+  background: #432D44;
+}
+
+.allClientsRedirectButton {
+  padding: 5px 10px 5px 10px;
+
+  background-color: #200F21;  
+  border-radius: 3px; 
+
+  text-decoration:none;
+  color: #CA9BD6;  
+  font-family: 'Quicksand', sans-serif;
+  font-size: 28px;
+
+  transition: background-color 0.2s;
+}
+
+.allClientsRedirectButton:hover {
+  background: #432D44;
 }

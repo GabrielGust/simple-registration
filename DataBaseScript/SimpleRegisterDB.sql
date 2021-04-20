@@ -9,3 +9,5 @@ create table clientes (
     tell varchar(13),
     age int
 )engine=innodb;
+
+select * from clientes;

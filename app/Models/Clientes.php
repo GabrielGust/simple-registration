@@ -13,11 +13,23 @@ class Clientes {
     return $db->getList($this->table, "*");
   }
 
-  public function recordClient($data = null) {
+  public function record_client($data = null) {
     $db = Database::getInstance();
 
+    //echo var_dump($data);
+
     if($data != null && !empty($data)){
-      return $db->insert($this->table, $data);
+      if(isset($data['name']) && filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
+
+        $data = [
+          'client_name' => $data['name'],
+          'email' => filter_var($data['email'], FILTER_VALIDATE_EMAIL),
+          'tell' => $data['tell'],
+          'age' => intval($data['age']),
+        ];
+
+        return $db->insert($this->table, $data);
+      }      
     }
 
     return false;
