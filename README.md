@@ -2,10 +2,6 @@
     <h1>Simple Registration made with Noobframework</h1>
 </div>
 
-<h4 align="center"> 
-	🚧 Equalizer is under construction, I accept tips and changes 🚧
-</h4>
-
 <p align="center">
  • <a href="#-about">About</a> •
  <a href="#-features">Features</a> •
@@ -20,36 +16,33 @@
 
 ## 💻 About
 
-❗ Equalizer is a website, made with Noobframework, that solves quadratic equations and presents their maximum and minimum values. The project was made using only PHP, HTML and CSS.
+❗ Simple registration made with a MVC framework called Noobframework.
 
 ---
 
 ## ⚙️ Features
 
-- [x] Variable insertion screen:
-  - [ ] Sending the inputted data A, B and C 
+- [x] Register new customers:
+  - [x] Name field (maxlength 40)
+  - [x] E-mail field (maxlength 33)
+  - [x] Tell field (maxlength 13)
+  - [x] Age field
   
-- [x] Resolution screen:
-  - [ ] Show results for X' and X" 
-  - [ ] Button redirects to the maximum and minimum point screen
+- [x] List of all customers:]
+  - [x] List all registered customers
+  - [x] Show all the customers infos 
 
-- [x] Maximum and minimum point screen:
-  - [ ] Show the maximum and minimum points according to the variables
-  - [ ] Button redirects to the quadratic function creation screen
+- [x] Screen showing that the registration was successful:
+  - [x] It also shows when it was not possible to register
   
-- [x] Anoter features:
-  - [x] Dynamic content between actions
-  - [x] Code reuse
-
 ---
 
 ## 🎨 Layout
 
 Some videos of the project's look:
 
-![index](https://user-images.githubusercontent.com/65090609/113058309-599b6980-9184-11eb-9e51-788d6934d833.gif)
-![result](https://user-images.githubusercontent.com/65090609/113058373-6d46d000-9184-11eb-86f3-e567990a06a4.gif)
-![maxminpoint](https://user-images.githubusercontent.com/65090609/113058417-79cb2880-9184-11eb-9975-67811ba4631b.gif)
+![index](https://user-images.githubusercontent.com/65090609/116496719-18c66b80-a87c-11eb-8a69-809fda33fcb7.gif)
+![clients](https://user-images.githubusercontent.com/65090609/116496747-22e86a00-a87c-11eb-9b47-f40ce5d88753.gif)
 
 ---
 
