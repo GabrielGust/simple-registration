@@ -13,10 +13,15 @@ class Clientes {
     return $db->getList($this->table, "*");
   }
 
+  public function getOne(int $id){
+    $db = Database::getInstance();
+    $userInfo = $db->getList($this->table, "*", ['id_client' => $id]);
+
+    return $userInfo[0];
+  }
+
   public function record_client($data = null) {
     $db = Database::getInstance();
-
-    //echo var_dump($data);
 
     if($data != null && !empty($data)){
       if(isset($data['name']) && filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
@@ -33,5 +38,32 @@ class Clientes {
     }
 
     return false;
+  }
+
+  public function edit_client($data, $condition) {
+    $db = Database::getInstance();
+
+    if($data != null && !empty($data)){
+      if(isset($data['name']) && filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
+
+        $data = [
+          'id_client' => $condition['id_client'],
+          'client_name' => $data['name'],
+          'email' => filter_var($data['email'], FILTER_VALIDATE_EMAIL),
+          'tell' => $data['tell'],
+          'age' => intval($data['age']),
+        ];
+
+        return $db->update($this->table, $data, $condition);
+      }      
+    }
+
+    return false;
+  }
+
+  public function delete_client(int $id) {
+    $db = Database::getInstance();
+
+    return $db->delete($this->table, ['id_client' => $id]);
   }
 }

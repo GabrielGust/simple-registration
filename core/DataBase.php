@@ -154,6 +154,7 @@ class DataBase {
         try {
             $this->dispatch($query, $updateValues);
         } catch(PDOException $e) {
+            //die(var_dump($e));
             return false;
         }
         return true;
