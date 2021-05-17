@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../public/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Quicksand:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <title>Cadastro de Usuário</title>
+  </head>
+  <body >
+    <div class="container">
+      <div class="loginCard">
+        <h1 class="loginTitle">Login de Usuário</h1>
+        
+        <form id="loginUserForm" action="/login" method="POST">
+
+          <div class="inputStyle">
+            <label id="emailLabel" for="emailInput">E-mail:</label>
+            <input 
+              type="text" 
+              id="emailInput" 
+              name="email" 
+              placeholder="Insira seu e-mail" 
+              value="<?php 
+                echo !isset($clientInfo) ?
+                null :
+                $clientInfo['email']
+              ?>"
+              maxlength="33" 
+              required
+            >
+          </div>
+
+          <div class="inputStyleFinal">
+            <label id="passwordLabel" for="passwordInput">Senha:</label>
+            <input 
+              type="text" 
+              id="passwordInput" 
+              name="password" 
+              placeholder="<?php 
+                echo !isset($clientInfo) ?
+                'Insira sua senha' :
+                'Insira sua nova senha'
+              ?>"
+              maxlength="20" 
+              <?php 
+                echo !isset($clientInfo) ?
+                'required' :
+                null
+              ?>
+            >
+          </div>
+
+          <div class="redirectRegisterContainer">
+            <a class="redirectRegisterAnchor" href="/" >Cadastrar Usuário ></a>
+          </div>
+        </form>
+        
+        <div class="buttonGroup">
+          <button type="reset" form="loginUserForm">Cancelar</button>
+          <button type="submit" form="loginUserForm">Entrar</button>
+        </div>        
+      </div>  
+    </div>
+  </body>
+</html>

@@ -11,17 +11,17 @@
     <div class="container">
       <?php 
         if(isset($response)){
-          echo '<h1 class="confirmRegisterTitle">Seu cliente foi cadastrado!</h1>';
+          echo '<h1 class="confirmRegisterTitle">Seu usuário foi cadastrado!</h1>';
           echo '<div class="redirectButtons">';
-          echo '  <a class="backToRegisterButton" href="../">Voltar</a>';
-          echo '  <a class="allClientsRedirectButton" href="../clientes/">Clientes</a>';
+          echo '  <a class="backToRegisterButton" href="/">Voltar</a>';
+          echo '  <a class="allClientsRedirectButton" href="/login">Login</a>';
           echo '</div>';
 
         } else {
-          echo '<h1 class="confirmRegisterTitle">Falha ao cadastrar cliente!</h1>';
+          echo '<h1 class="confirmRegisterTitle">Falha ao cadastrar usuário!</h1>';
           echo '<div class="redirectButtons">';
           echo '  <a class="backToRegisterButton" href="../">Voltar</a>';
-          echo '  <a class="allClientsRedirectButton" href="../clientes/">Clientes</a>';
+          echo '  <a class="allClientsRedirectButton" href="/login">Login</a>';
           echo '</div>';
         }
       ?>

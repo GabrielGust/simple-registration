@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../public/css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Quicksand:wght@700&family=Roboto&display=swap" rel="stylesheet">
-    <title>Cadastro de Usuário</title>
+    <title><?php echo !isset($clientInfo) ? 'Cadastro de Usuário' : 'Atualizar Usuário'?></title>
   </head>
   <body >
     <div class="container">
@@ -53,6 +53,26 @@
               required
             >
           </div>
+
+          <div class="inputStyle">
+            <label id="passwordLabel" for="passwordInput">Senha:</label>
+            <input 
+              type="text" 
+              id="passwordInput" 
+              name="password" 
+              placeholder="<?php 
+                echo !isset($clientInfo) ?
+                'Insira sua senha' :
+                'Insira sua nova senha'
+              ?>"
+              maxlength="20" 
+              <?php 
+                echo !isset($clientInfo) ?
+                'required' :
+                null
+              ?>
+            >
+          </div>
           
           <div class="inputStyle">
             <label id="telLabel" for="tellInput">Telefone:</label>
@@ -86,10 +106,18 @@
               ?>"
               required>
           </div>
+
+          <div class="redirectLoginContainer">
+            <a class="redirectLoginAnchor" href="/login">Fazer Login ></a>
+          </div>
         </form>
         
         <div class="buttonGroup">
-          <button type="reset" form="registerUserForm">Cancelar</button>
+          <?php 
+            echo !isset($clientInfo) ?
+            '<button type="reset" form="registerUserForm">Cancelar</button>' :
+            '<a class="backAnchor" href="/clientes">Voltar</a>'
+          ?>
           <button type="submit" form="registerUserForm">Enviar</button>
         </div>        
       </div>  

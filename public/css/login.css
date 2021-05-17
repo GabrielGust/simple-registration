@@ -22,9 +22,9 @@ body {
   font-size: 17px;
 }
 
-.registerCard {
-  height: 60%;
-  width: 35%;
+.loginCard {
+  height: 45%;
+  width: 30%;
   display: flex;
 
   align-items: center;
@@ -33,8 +33,8 @@ body {
 
   background-color: #200f21;
   
-  padding-top: 15px;
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 40px;
 
   border-radius: 10px;
   font-family: 'Roboto', sans-serif;
@@ -48,23 +48,17 @@ h1 {
 }
 
 form {
-  width: 75%;
+  width: 80%;
   justify-self: flex-end;
 }
 
-.registerTitle {
-  margin-bottom: 30px;
+.loginTitle {
+  margin-bottom: 40px;
   font-size: 27px;
 }
 
 #emailLabel {
-  width: 16%;
-  align-self: center;
-  justify-content: center;
-}
-
-#ageLabel {
-  width: 13%;
+  width: 17%;
   align-self: center;
   justify-content: center;
 }
@@ -130,7 +124,7 @@ input:hover {
   border-style: solid;
 }
 
-.redirectLoginContainer {
+.redirectRegisterContainer {
   display: flex;
   margin-top: 8px;
   
@@ -138,21 +132,21 @@ input:hover {
   justify-content: flex-end;
 }
 
-.redirectLoginAnchor {
+.redirectRegisterAnchor {
   color: #ca9bd6cb;
 
   font-size: 14px;
   text-decoration: none;
 }
 
-.registerCard .buttonGroup {
+.loginCard .buttonGroup {
   width: 75%;
-  margin-top: 35px;
+  margin-top: 45px;
   display: flex;
   justify-content: space-between;
 }
 
-.registerCard .buttonGroup button {
+.loginCard .buttonGroup button {
   height: 35px;
   width: 130px;
 
@@ -168,31 +162,6 @@ input:hover {
   transition: background-color 0.2s;
 }
 
-.registerCard .buttonGroup button:hover {
-  background: #432D44;
-}
-
-.backAnchor {
-  display: flex;
-  height: 35px;
-  width: 130px;
-
-  align-items: center;
-  justify-content: center;
-
-  font-family: 'Nunito', sans-serif;
-  font-size: 18px;
-  text-decoration: none;
-
-  background-color: #5a3d5c;
-  color: #A498B4;
-
-  border-radius: 5px;
-  border: 0px;
-
-  transition: background-color 0.2s;
-}
-
-.backAnchor:hover {
+.loginCard .buttonGroup button:hover {
   background: #432D44;
 }

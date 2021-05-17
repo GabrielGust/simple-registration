@@ -7,6 +7,25 @@ use Core\Database;
 class Clientes {
   private $table = "clientes";
 
+  public function login($email, $password) {
+    $db = Database::getInstance();
+
+    if (!empty($email) && !empty($password)) {
+      $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+      $data = $db->getList($this->table, '*', ['email' => $email]);
+      $user = $data[0];
+
+      if (isset($user['id_client'])) {
+        if (password_verify($password,$user['password'])) {
+          unset($user['password']);
+          return $user;
+        }           
+      }
+    }
+
+    return false;
+  }
+
   public function getAll(){
     $db = Database::getInstance();
 
@@ -29,6 +48,7 @@ class Clientes {
         $data = [
           'client_name' => $data['name'],
           'email' => filter_var($data['email'], FILTER_VALIDATE_EMAIL),
+          'password' => password_hash($data['password'], PASSWORD_BCRYPT, ["cost" => 10]),
           'tell' => $data['tell'],
           'age' => intval($data['age']),
         ];
@@ -43,7 +63,21 @@ class Clientes {
   public function edit_client($data, $condition) {
     $db = Database::getInstance();
 
-    if($data != null && !empty($data)){
+    if($data != null && !empty($data) && !empty($data['password'])){ // caso a senha SEJA alterada
+      if(isset($data['name']) && filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
+
+        $data = [
+          'id_client' => $condition['id_client'],
+          'client_name' => $data['name'],
+          'email' => filter_var($data['email'], FILTER_VALIDATE_EMAIL),
+          'password' => password_hash($data['password'], PASSWORD_BCRYPT, ["cost" => 10]),
+          'tell' => $data['tell'],
+          'age' => intval($data['age']),
+        ];
+
+        return $db->update($this->table, $data, $condition);
+      }      
+    } elseif($data != null && !empty($data)) { // caso a senha NÃO SEJA alterada
       if(isset($data['name']) && filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
 
         $data = [
@@ -55,7 +89,7 @@ class Clientes {
         ];
 
         return $db->update($this->table, $data, $condition);
-      }      
+      }
     }
 
     return false;

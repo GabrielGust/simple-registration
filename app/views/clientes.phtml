@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../public/css/clientes.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Quicksand:wght@700&family=Roboto&display=swap" rel="stylesheet">
-    <title>Clientes cadastrados</title>
+    <title>Usuários cadastrados</title>
   </head>
   <body>
     <div class="container">
       <div class="clientsCard">
-        <h1 class="clientsCardTitle">Lista de clientes</h1>
+        <div class="clientsCardHeader">
+          <h1 class="clientsCardID">ID do Usuário: <?php echo $idUser ?></h1>
+          <h1 class="clientsCardTitle">Lista de usuários</h1>
+          <a class="clientsCardLogout" href="/login/logout">Sair da Conta</a>
+        </div>        
         <div class="clientsInfoContent">
           <?php 
             if ($clients != null && !empty($clients)){
               foreach ($clients as $client) {
                 echo '<div class="clientInfo">';
                 echo '<div class="infos">';
-                echo '<p class="clientID">Código do cliente: ' . $client['id_client'] . '</p>';
+                echo '<p class="clientID">Código do usuário: ' . $client['id_client'] . '</p>';
                 echo '<p>Nome: ' . $client['client_name'] . '</p>';
                 echo '<p>E-mail: ' . $client['email'] . '</p>';
+                echo '<p>Senha: ' . $client['password'] . '</p>';
                 echo '<p>Contato: ' . $client['tell'] . '</p>';
                 echo '<p>Idade: ';
                 echo $client['age'] <= 18 ? $client['age'] . ' (Menor de idade)</p>' : $client['age'] . ' (Maior de idade)</p>';
@@ -36,9 +41,6 @@
               echo '</div>';
             }
           ?>
-          <div class="buttons">
-            
-          </div>
         </div>
       </div> 
     </div>
